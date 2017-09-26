@@ -36,9 +36,7 @@
                     items.push([elem, data.head]);
                 });
 
-
                 drawChart(items);
-
 
             },
             error:function (err) {

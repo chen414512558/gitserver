@@ -23,7 +23,7 @@ module.exports = ()=>{
                 if (!head && info.includes('HEAD')) {
                     head = info.substring(30, length);
                 }
-                if (info.includes(head)) {
+                if (head && info.includes(head)) {
                     res.head = info.substring(15, length);
                 } else {
                     res.content.push(info.substring(15, length));

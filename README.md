@@ -1,2 +1,2 @@
-# gitserver
-git manager
+# git管理器
+ #功能： 登录 注册 获取新分支 申请新上线

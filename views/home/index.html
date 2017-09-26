@@ -1,0 +1,45 @@
+{% extends '../layout.html' %}
+{% block title %}
+{{title}}
+{% endblock %}
+
+{% block style %}
+    <link rel="stylesheet" href="css/home/index.css">
+    <link rel="stylesheet" href="css/chart/tooltip.css">
+    <link rel="stylesheet" href="css/chart/util.css">
+    <link rel="stylesheet" href="css/chart/orgchart.css">
+{% endblock %}
+
+{% block content %}
+<div class="container">
+    <div class="form-signin">
+        <h2 class="form-signin-heading">Please sign in</h2>
+        <div class="input-group">
+            <span class="input-group-addon" id="basic-addon1">url</span>
+            <input type="text" id="url-input" readonly="readonly" class="form-control"  aria-describedby="basic-addon1">
+        </div>
+        <div class="input-group">
+            <span class="input-group-addon" id="basic-addon1">name</span>
+            <input type="text" id="name-input" readonly="readonly" class="form-control"  aria-describedby="basic-addon1">
+        </div>
+        <div>
+            <button id='btn-create' class="btn btn-lg btn-primary" type="text">创建分支</button>
+            <button id='btn-deploy' class="btn btn-lg  btn-info" type="text">上线申请</button>
+        </div>
+    </div>
+    <div>
+        <p style="text-align: center; font-size: 18px; margin-top: 20px;">目前该git仓库的分支概览图</p>
+        <div id="chart_div">
+
+        </div>
+    </div>
+</div>
+{% endblock %}
+
+{% block script %}
+    <script src="js/chart/jsapi_compiled_format_module.js"></script>
+    <script src="js/chart/jsapi_compiled_default_module.js"></script>
+    <script src="js/chart/jsapi_compiled_ui_module.js"></script>
+    <script src="js/chart/jsapi_compiled_orgchart_module.js"></script>
+    <script src="js/home/index.js"></script>
+{% endblock %}

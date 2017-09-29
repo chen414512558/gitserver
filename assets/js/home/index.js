@@ -8,9 +8,16 @@
             dataType:"json",
             type:"post",
             success:function (data) {
-                console.log('crete', data)
-                alert('创建分支成功');
-                getBranchesInfo();
+                if (data.code == 0) {
+                    console.log('crete', data)
+                    alert('创建分支成功');
+                    getBranchesInfo();
+                } else if (data.code === 10) {
+                    location = data.message;
+                } else {
+                    alert('哦噢，出错了哦');
+                }
+
             },
             error:function (err) {
                 console.log(err);

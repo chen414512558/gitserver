@@ -2,7 +2,8 @@
 module.exports = {
     restify: () => {
         return async (ctx, next) => {
-            if (ctx.request.header['x-requested-with']) {
+            let isAjax = ctx.request.header['x-requested-with'];
+            if (isAjax) {
                 ctx.rest = (data) => {
                     ctx.response.type = 'application/json';
                     ctx.body = JSON.stringify({
@@ -14,10 +15,11 @@ module.exports = {
                 try {
                     await next();
                 } catch (e) {
-                    if (e.code) {
+                    if (e.code && isAjax) {
+                        ctx.status = 200;
                         ctx.response.type = 'application/json';
                         ctx.response.body = JSON.stringify({
-                            code: e.code || 'internal:unknown_error',
+                            code: e.code,
                             message: e.message || ''
                         });
                     } else {

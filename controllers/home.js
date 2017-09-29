@@ -1,8 +1,9 @@
 const Router = require('koa-router');
 const shell = require('shelljs');
+const authUser = require('../middlewares/auth');
 const router = new Router();
 
-module.exports = ()=>{
+module.exports = (db)=>{
     router.get('/', async (ctx)=>{
         await ctx.render('home/index', {title: '主页'});
     });
@@ -32,7 +33,8 @@ module.exports = ()=>{
         });
         ctx.rest(res);
     });
-    router.post('createGit', (ctx)=>{
+
+    router.post('createGit', authUser, (ctx)=>{
         let name = ctx.request.body.username;
         shell.exec(`git checkout -b ${name}`);
         shell.exec('git add -A');

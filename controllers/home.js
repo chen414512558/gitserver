@@ -5,7 +5,7 @@ const router = new Router();
 
 module.exports = (db)=>{
     router.get('/', async (ctx)=>{
-        await ctx.render('home/index', {title: '主页'});
+        await ctx.render('home/index', {title: '主页', username: ctx.session.user? ctx.session.user.username: ''});
     });
     router.get('gitInfo', async (ctx)=>{
         let infos = shell.exec('git branch -a').stdout;

@@ -1,0 +1,11 @@
+{
+    "apps" : [{
+        "script"    : "app.js",
+        "instances" : "max",
+        "exec_mode" : "cluster",
+        "watch": true,
+        "log_date_format" : "YYYY-MM-DD HH:mm Z",
+        "error_file"      : "pm2log/err.log",
+        "out_file"        : "pm2log/out.log"
+    }]
+  }

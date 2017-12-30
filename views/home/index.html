@@ -13,7 +13,7 @@
 {% block content %}
 <div class="container">
     <div class="form-signin">
-        <h2 class="form-signin-heading">Please sign in</h2>
+        <h2 class="form-signin-heading">{{username || '请登录'}}</h2>
         <div class="input-group">
             <span class="input-group-addon" id="basic-addon1">url</span>
             <input type="text" id="url-input" readonly="readonly" class="form-control"  aria-describedby="basic-addon1">

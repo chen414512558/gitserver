@@ -4,10 +4,29 @@
 {% endblock %}
 
 {% block style %}
+<link rel="stylesheet" href="css/login/login.css">
 {% endblock %}
 
 {% block content %}
+<form method="post" class="mycenter">
+    <div class="form-group">
+        <label for="username">用户名</label>
+        <input name="username" type="text" class="form-control" id="username" placeholder="请输入用户名">
+    </div>
+    <div class="form-group">
+        <label for="password">密码</label>
+        <input name="password" type="password" class="form-control" id="password" placeholder="请输入密码">
+    </div>
+    <div class="checkbox">
+        <label>
+            <input type="checkbox"> 记住密码
+        </label>
+    </div>
+    <button id="login" type="button" class="mybtn btn btn-success">登录</button>
+    <button id="regist" type="button" class="mybtn btn btn-info">注册</button>
+</form>
 {% endblock %}
 
 {% block script %}
+<script src="/js/login/login.js"></script>
 {% endblock %}
